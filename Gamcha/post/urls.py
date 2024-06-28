@@ -5,5 +5,6 @@ from django.conf import settings
 
 urlpatterns = [
     path('',views.index, name='index'),
+    path('post/<int:post_id>/', views.post_detail, name='post_detail')
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
