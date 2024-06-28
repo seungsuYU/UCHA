@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            border: 1px solid black;
+            display: flex;
+
+        }
+
+        .contents {
+            width: 500px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% load static %}
+        <div class="contents">
+            <img src="{%static 'img/temp.png' %}" alt="임시이미지">
+            <p>게시글 내용</p>
+        </div>
+        <div class="comment">
+            댓글 리스트
+        </div>
+    </div>
+
+</body>
+</html>
