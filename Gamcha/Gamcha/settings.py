@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'post',
+    "common.apps.CommonConfig",
     "post.apps.PostConfig",
     "django.contrib.admin",
     "django.contrib.auth",
