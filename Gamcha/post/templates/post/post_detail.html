@@ -4,30 +4,157 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         .container {
-            border: 1px solid black;
+            width: 900px;
+            /* border: 2px solid black; */
             display: flex;
+            margin: 10px auto;
 
         }
 
-        .contents {
+        .left__wrapper {
             width: 500px;
+            /* border-right: 1px solid black; */
         }
 
+        img {
+            height: 500px
+        }
 
+        .left__wrapper__contents {
+
+        }
+
+        .post__title {
+            display: flex;
+            align-items: center;
+            background-color: #d5d3cb;
+            height: 50px;
+            padding-left: 15px;
+
+        }
+
+        .post__contents {
+            padding: 15px 0 0 15px;
+            background-color: #dbdbd3;
+            height: 300px;
+        }
+
+        .space__wrapper {
+            width: 50px;
+        }
+
+        .right__wrapper {
+            width: 300px;
+        }
+
+        .comment__list {
+            height: 700px;
+            /* background-color: #03ea6b; */
+            width: 343px;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .comments {
+            display: flex;
+            width: 330px;
+            height: 80px;
+            box-shadow: 2px 2px 3px 2px gray;
+        }
+
+        .comments__contents {
+            width: 289px;
+            padding: 10px;
+        }
+
+        .comments__writer {
+            display: flex;
+            align-items: end;
+            font-size: 12px;
+            padding: 0 5px 10px 0;
+        }
+
+        .comment__inputBox {
+            width: 344px;
+            height: 163px;
+            border: none;
+            outline: 2px solid #04AA6D;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 15px;
+            resize: none;
+        }
+
+        .comment__inputBox:focus {
+            outline: 3px solid #04AA6D;;
+        }
+
+        .button__box {
+            margin-top: 10px;
+            display: flex;
+            justify-content: end;
+            width: 350px;
+
+        }
+
+        .comment__button {
+            border: 2px solid #04AA6D;
+            color: black;
+            width: 85px;
+            height: 35px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 15px;
+            background-color: white;
+            transition-duration: 0.4s;
+            margin-left: 10px;
+        }
+
+        .comment__button:hover {
+            background-color: #04AA6D;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        {% load static %}
-        <div class="contents">
-            <img src="{%static 'img/temp.png' %}" alt="임시이미지">
-            <p>게시글 내용</p>
-        </div>
-        <div class="comment">
-            댓글 리스트
-        </div>
-    </div>
+<form action="">
+        <div class="container">
+            {% load static %}
+            <div class="left__wrapper">
+                <div class="img">
+                    <img src="{%static 'img/temp.png' %}" alt="임시이미지">
+                </div>
+                <div class="left__wrapper__contents">
+                    <div class="post__title">
+                        게시글 재목
+                    </div>
+                    <div class="post__contents">
+                        게시글 내용
+                    </div>
 
+                </div>
+            </div>
+            <div class="space__wrapper"></div>
+            <div class="right__wrapper">
+                <div class="comment__list">
+                    <div class="comments">
+                        <div class="comments__contents">내용</div>
+                        <div class="comments__writer">작성자</div>
+                    </div>
+                </div>
+                <textarea name="" class="comment__inputBox" placeholder="댓글을 작성해주세요."></textarea>
+                <div class="button__box">
+                    <button class="comment__button" type="submit" >뒤로</button>
+                    <button class="comment__button" type="submit" >댓글작성</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
 </body>
 </html>
