@@ -1,20 +1,127 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ko" xmlns:background-color="#38df81">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-
-    <title>Main</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <link rel="stylesheet" href="{% static './css/post.css' %}">
+  <link rel="shortcut icon" href="{% static './img/마스코트.jpg' %}" />
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/58c5aa37d2.js" crossorigin="anonymous"></script>
+  <script src="{% static './js/post.js' %}"></script>
+  <title>Post</title>
 </head>
 <body>
-<!--Header-->
-<header class="header">
-<!--    <div class="header__logo">-->
-<!--    </div>-->
-<!--    로고 등록-->
-<nav style="height: 10rem; background-color: #38df81; border-radius: 1rem; margin: 2rem; font-size: 3rem;">
-    으차슛
-</nav>
-</header>
+  <div class="WindowView">
+    <!-- Header -->
+    <header class="header font">
+      <div class="header__logo">
+        <a href="#">
+          <img class="header__logo__img" src="{% static './img/logo.png' %}" alt="으차슛 로고" />
+        </a>
+        <div class="logo__title__span">
+          <h1 class="header__logo__title">으라차차 슛돌이</h1>
+        </div>
+        <div class="header__logo__section">
+          <a class="header__logo__login active" href="#">로그인</a>
+          <a class="header__logo__sign active" href="#">회원가입</a>
+        </div>
+      </div>
+    </header>
+    <!-- Main -->
+    <main class="main">
+      <div class="title">
+        <p class="title__name">자유게시판</p>
+      </div>
+      <div class="body__all">
+        <aside class="body__left">
+            <nav class="body__left__menu">
+              <div class="menu__header">
+                <h3 class="left__menu">커뮤니티</h3>
+              </div>
+              <div class="menu__contents__body">
+                <ul class="contents__section">
+                  <li class="section__content"><a href="#">매  칭</a></li>
+                  <li class="section__content"><a href="#">풋살장 예약</a></li>
+                  <li class="section__content"><a href="#">팀원 모집</a></li>
+                  <li class="section__content"><a href="#">용병 등록</a></li>
+                </ul>
+              </div>
+            </nav>
+          </aside>
+        <section class="body__right">
+          <div class="body__right__contents">
+            <ul class="right__sections">
+              <!-- 게시글 섹션은 JavaScript로 추가됩니다 -->
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div class="dropup">
+        <button class="dropbtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="dropup-content">
+          <a href="#" id="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          <a href="#" id="openModal">
+            <i class="fa-solid fa-message"></i>
+          </a>
+          <a href="#">
+            <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+      <!-- 새 게시글 작성 모달 -->
+      <div id="myModal" class="modal">
+        <div>
+        <div class="modal-content">
+          <div class="modal__content__title">
+            <div class="title__font">
+              <p class="modal__title">새 게시글 작성</p>
+            </div>
+            <div class="title__close">
+              <span class="close">&times;</span>
+            </div>
+          </div>
+          <div class="modal__main">
+            <div class="modal__left">
+              <div class="modal__main__section">
+                <div class="modal__main__sort">
+                  <div class="modal__main__icon">
+                    <i class="fa-regular fa-image"></i>
+                  </div>
+                  <div class="main__left__coment">
+                    <p>이미지를 드롭 해주세요</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__right">
+              <div class="right__header__coment">
+                <input class="input__text" type="text" placeholder="제목: " />
+              </div>
+              <div class="right__main__text">
+                <textarea class="input__text" type="text" placeholder="내용: " cols="70" rows="13">
+
+                </textarea>
+              </div>
+              <div class="right__footer__button">
+                <button class="footer__button">작성</button>
+                <button class="footer__button">안해</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      </div>
+      <!-- 검색창 -->
+      <div id="searchModal" class="search-modal">
+        <input type="text" id="searchInput" class="search-input" placeholder="검색어를 입력하세요..." />
+      </div>
+    </main>
+  </div>
 </body>
 </html>
