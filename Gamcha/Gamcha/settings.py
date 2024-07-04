@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'post',
     "common.apps.CommonConfig",
     "post.apps.PostConfig",
     "django.contrib.admin",
@@ -121,7 +120,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'image', 'static')]
+    os.path.join(BASE_DIR, 'img', 'static')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
