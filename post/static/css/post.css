@@ -1,0 +1,392 @@
+/* Dropup 스타일 수정 */
+.dropup {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+  
+  .dropbtn {
+    background-color: #3498db;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 1s;
+  }
+  
+  .dropup-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 45.99px;
+    height: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 20px;
+    overflow: hidden;
+    transition: height 0.5s, visibility 0s 0.5s, opacity 0.5s linear;
+  }
+  
+  .dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropup-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropup:hover .dropup-content {
+    visibility: visible;
+    opacity: 1;
+    height: 180px;
+    transition: height 0.5s, visibility 0s, opacity 0.5s linear;
+  }
+  
+  .dropup:hover .dropbtn {
+    background-color: #2980b9;
+  }
+  
+  /* 모달 */
+  a[id*="popup"] + label + div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+  }
+  
+  /* 고정 */
+  :root {
+    --color-white: #ffffff;
+    --color-black: #050a13;
+    --color-gray: #282c34;
+  
+    /* size */
+    --size-max-width: 1200px;
+  }
+  
+  @font-face {
+    font-family: "NEXONFootballGothicBA1";
+    src: url("https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .active,
+  .modal-content .title__close .close {
+    cursor: pointer;
+  }
+  
+  body,
+  html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: "NEXONFootballGothicBA1";
+    overflow: hidden;
+  }
+  
+  .WindowView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 0px 40px 0px 40px;
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+  
+  .header__logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .header__logo a {
+    text-decoration: none;
+  }
+  
+  .header__logo__img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .header__logo__title {
+    font-size: 25px;
+    margin-left: 10px;
+  }
+  
+  .header__logo__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header__logo__login,
+  .header__logo__sign {
+    font-size: 20px;
+    color: var(--color-white);
+    margin: 0 20px;
+    text-decoration: none;
+  }
+  
+  .header__logo__sign:hover,
+  .header__logo__login:hover {
+    color: #ededed;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    padding: 20px;
+  }
+  
+  .title {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .title__name {
+    margin-left: 1rem;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .body__all {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .body__left {
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    margin-left: 1rem;
+  }
+  
+  .body__right {
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .body__left__menu {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu__header {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .left__menu {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .menu__contents__body {
+    padding: 10px 0;
+  }
+  
+  .contents__section {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .section__content {
+    padding: 10px 0;
+  }
+  
+  .section__content a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .body__right__contents {
+    width: 100%;
+  }
+  
+  .right__sections {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .right__sections li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dropup-content a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  
+  /* 모달 스타일 */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  .modal__content__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  .modal__title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .modal__main {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  
+  .modal__left,
+  .modal__right {
+    width: 100%;
+  }
+  
+  .modal__main__section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .modal__main__sort {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .modal__main__icon {
+    margin-right: 10px;
+  }
+  
+  .main__left__coment {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .right__header__coment,
+  .right__main__text,
+  .right__footer__button {
+    padding: 10px 0;
+  }
+  
+  .input__text {
+    width: 100%;
+    /* padding: 10px; */
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: "NEXONFootballGothicBA1";
+  }
+  
+  .footer__button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .footer__button:hover {
+    background-color: #2980b9;
+  }
+  
+  .close {
+    font-size: 24px;
+  }
+  
+  .search-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 15px;
+    font-size: 20px;
+    width: 80%;
+    max-width: 500px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .search-input:focus {
+    outline: none;
+  }

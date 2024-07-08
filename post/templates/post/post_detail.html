@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 10px auto;
+            display: flex;
+        }
+
+        .left__wrapper {
+            width: 500px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .left__wrapper img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .post__title {
+            background-color: #d5d3cb;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .post__contents {
+            background-color: #dbdbd3;
+            padding: 15px;
+            min-height: 300px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .space__wrapper {
+            width: 50px;
+        }
+
+        .right__wrapper {
+            width: 350px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .comment__list {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .comments {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .comments__contents {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .comments__writer {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .comment__inputBox {
+            width: 100%;
+            height: 100px;
+            border: 2px solid #04AA6D;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 15px;
+            resize: none;
+        }
+
+        .comment__inputBox:focus {
+            outline: 3px solid #04AA6D;
+        }
+
+        .button__box {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .comment__button {
+            border: 2px solid #04AA6D;
+            color: #04AA6D;
+            background-color: #ffffff;
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .comment__button:hover {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="container">
+            <div class="left__wrapper">
+                <div class="img">
+                    <img alt="임시이미지">
+                </div>
+                <div class="left__wrapper__contents">
+                    <div class="post__title">
+                        게시글 제목
+                    </div>
+                    <div class="post__contents">
+                        게시글 내용
+                    </div>
+                </div>
+            </div>
+            <div class="space__wrapper"></div>
+            <div class="right__wrapper">
+                <div class="comment__list">
+                    <div class="comments">
+                        <div class="comments__contents">댓글 내용</div>
+                        <div class="comments__writer">댓글 작성자</div>
+                    </div>
+                    <!-- More comments can be added dynamically -->
+                </div>
+                <textarea name="" class="comment__inputBox" placeholder="댓글을 작성해주세요."></textarea>
+                <div class="button__box">
+                    <button class="comment__button" type="submit">뒤로</button>
+                    <button class="comment__button" type="submit">댓글 작성</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

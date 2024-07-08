@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    /* Dropup 스타일 수정 */
+    .dropup {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    }
+  
+    .dropbtn {
+    background-color: #3498db;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 1s;
+    }
+  
+    .dropup-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 45.99px;
+    height: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-top: 20px;
+    overflow: hidden;
+    transition: height 0.5s, visibility 0s 0.5s, opacity 0.5s linear;
+    }
+  
+    .dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+  
+    .dropup-content a:hover {
+    background-color: #ddd;
+    }
+  
+    .dropup:hover .dropup-content {
+    visibility: visible;
+    opacity: 1;
+    height: 180px;
+    transition: height 0.5s, visibility 0s, opacity 0.5s linear;
+    }
+  
+    .dropup:hover .dropbtn {
+    background-color: #2980b9;
+    }
+  
+    /* 모달 */
+    a[id*="popup"] + label + div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    }
+    </style>
+    <title>새 게시글 작성</title>
+</head>
+<body>
+    <h1>새 게시글 작성</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div id="myModal" class="modal">
+            <div>
+            <div class="modal-content">
+              <div class="modal__content__title">
+                <div class="title__font">
+                  <p class="modal__title">새 게시글 작성</p>
+                </div>
+                <div class="title__close">
+                  <span class="close"></span>
+                </div>
+              </div>
+              <div class="modal__main">
+                <div class="modal__left">
+                  <div class="modal__main__section">
+                    <div class="modal__main__sort">
+                      <div class="modal__main__icon">
+                        <i class="fa-regular fa-image"></i>
+                      </div>
+                      <div class="main__left__coment">
+                        <p>이미지를 드롭 해주세요</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal__right">
+                  <div class="right__header__coment">
+                    <input class="input__text" type="text" placeholder="제목: " />
+                  </div>
+                  <div class="right__main__text">
+                    <textarea class="input__text" type="text" placeholder="내용: " cols="70" rows="13">
+    
+                    </textarea>
+                  </div>
+                  <div class="right__footer__button">
+                    <button class="footer__button">작성</button>
+                    <button class="footer__button">안해</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+    </form>
+    <script>
+        var modal = document.getElementById("myModal");
+        var searchModal = document.getElementById("searchModal");
+        var openModalBtn = document.getElementById("openModal");
+        var searchBtn = document.getElementById("search");
+        var closeBtn = document.getElementsByClassName("close")[0];
+        var searchInput = document.getElementById("searchInput");
+      
+        openModalBtn.onclick = function () {
+          modal.style.display = "flex";
+          modal.style.alignContent = 'center';
+          modal.style.justifyContent = 'center';
+        };
+      
+        closeBtn.onclick = function () {
+          modal.style.display = "none";
+        };
+      
+        searchBtn.onclick = function () {
+          searchModal.style.display = "flex";
+          searchInput.focus();
+        };
+      
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          } else if (event.target == searchModal) {
+            searchModal.style.display = "none";
+          }
+        };
+    </script>
+</body>
+</html>
