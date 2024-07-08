@@ -1,42 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>로그인</title>
     <style>
-    .kakao-btn {
-        margin-top: 5px;
-        width: 183px;
-        height: 45px;
-        background-image: url(/static/img/kakao_login.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        border: none;
-        cursor: pointer;
-        background-color: #fee500;
-        border-radius: 6px;
-    }
-</style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .alert {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 0.875rem;
+            text-align: left;
+        }
+        .alert ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .alert li {
+            margin-bottom: 5px;
+        }
+        .alert strong {
+            font-weight: bold;
+        }
+        h2 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        .mb-3 {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .link-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+        .link-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+        .signup-btn {
+            width: 60%;
+            height: 45px;
+            padding: 0.5rem;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            text-align: center;
+            line-height: normal;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .signup-btn:hover {
+            background-color: #218838;
+        }
+        hr {
+            margin: 1.5rem 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container my-3">
-    <form method="POST" action="{% url 'common:login' %}">
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
-        {% include "common/form_errors.html" %}
-        <div class="mb-3">
-            <label for="username">사용자ID</label>
-            <input type="text" class="form-control" name="username" id="username" value="{{ form.username.value|default_if_none:'' }}">
-        </div>
-        <div class="mb-3">
-            <label for="password">비밀번호</label>
-            <input type="password" class="form-control" name="password" id="password" value="{{ form.password.value|default_if_none:'' }}">
-        </div>
-        <button type="submit" class="btn btn-primary">로그인</button>
-        <hr>
-
-    </form>
-</div>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% if form.errors %}
+            <div class="alert">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li><strong>{{ field.label }}</strong>: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <h2>로그인</h2>
+        <form method="POST" action="{% url 'common:login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username">사용자ID</label>
+                <input type="text" class="form-control" name="username" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password">비밀번호</label>
+                <input type="password" class="form-control" name="password" id="password" required >
+            </div>
+            <button type="submit" class="btn btn-primary">로그인</button>
+            <div class="link-container">
+                <a href="{% url 'common:username_find' %}">아이디 찾기</a>
+                <a href="{% url 'common:password_reset' %}">비밀번호 찾기</a>
+            </div>
+            <hr>
+            <div class="btn-container">
+                <a href="{% url 'common:signup' %}" class="signup-btn">회원가입</a>
+            </div>
+        </form>
+    </div>
 </body>
-
-
+</html>

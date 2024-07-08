@@ -9,7 +9,10 @@
   <link rel="shortcut icon" href="{% static './img/마스코트.jpg' %}" />
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/58c5aa37d2.js" crossorigin="anonymous"></script>
-  <script src="{% static './js/post.js' %}"></script>
+  <!-- jquery 사용을 위한 코드 -->
+  {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+  <!-- 자바스크립트 -->
+  <script src="{% static './js/post.js' %}" defer></script>
   <title>Post</title>
 </head>
 <body>
@@ -24,8 +27,8 @@
           <h1 class="header__logo__title">으라차차 슛돌이</h1>
         </div>
         <div class="header__logo__section">
-          <a class="header__logo__login active" href="#">로그인</a>
-          <a class="header__logo__sign active" href="#">회원가입</a>
+          <a class="header__logo__login active" href="{% url 'common:login' %}">로그인</a>
+          <a class="header__logo__sign active" href="{% url 'common:signup' %}">회원가입</a>
         </div>
       </div>
     </header>
@@ -42,10 +45,10 @@
               </div>
               <div class="menu__contents__body">
                 <ul class="contents__section">
-                  <li class="section__content"><a href="#">매  칭</a></li>
-                  <li class="section__content"><a href="#">풋살장 예약</a></li>
-                  <li class="section__content"><a href="#">팀원 모집</a></li>
-                  <li class="section__content"><a href="#">용병 등록</a></li>
+                  <li class="section__content" onclick="contents__section()"><a href="#">매  칭</a></li>
+                  <li class="section__content" onclick="contents__section()"><a href="#">풋살장 예약</a></li>
+                  <li class="section__content" onclick="contents__section()"><a href="#">팀원 모집</a></li>
+                  <li class="section__content" onclick="contents__section()"><a href="#">용병 등록</a></li>
                 </ul>
               </div>
             </nav>
@@ -83,7 +86,6 @@
               <p class="modal__title">새 게시글 작성</p>
             </div>
             <div class="title__close">
-              <span class="close">&times;</span>
             </div>
           </div>
           <div class="modal__main">
@@ -109,13 +111,13 @@
                 </textarea>
               </div>
               <div class="right__footer__button">
-                <button class="footer__button">작성</button>
-                <button class="footer__button">안해</button>
+                <button class="footer__button" id="yes__post">작성</button>
+                <button class="footer__button" id="close">안해</button>
               </div>
             </div>
           </div>
         </div>
-    </div>
+      </div>
       </div>
       <!-- 검색창 -->
       <div id="searchModal" class="search-modal">

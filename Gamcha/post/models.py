@@ -17,3 +17,4 @@ class Comments(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
     create_date = models.DateTimeField(auto_now_add=True)
     # like = models.ManyToManyField(User, related_name='like_answer')
+    
